@@ -60,8 +60,11 @@ function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
 
-    ctx.fillStyle = "pink";
-    ctx.font = "bold 18px Arial";
+    ctx.shadowColor = "red";
+ctx.shadowBlur = 15;
+
+ctx.fillStyle = "#ff4d88";
+ctx.font = "bold 20px Arial";
 
 
     columns.forEach(column=>{
