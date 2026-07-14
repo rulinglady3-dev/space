@@ -59,7 +59,7 @@ function createColumns(){
 
             x: i * columnWidth,
 
-            speed: 1 + Math.random()*4,
+            speed: 8 + Math.random()*12,
 
             texts:texts
 
