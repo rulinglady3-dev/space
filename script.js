@@ -44,7 +44,7 @@ function createColumns(){
 
             texts.push({
 
-                y: -j * 60,
+                y: -j * 35 ,
 
                 size: 16 + Math.random()*10
 
@@ -59,7 +59,7 @@ function createColumns(){
 
             x: i * columnWidth,
 
-            speed: 8 + Math.random()*12,
+            speed: 25 + Math.random()*35,
 
             texts:texts
 
