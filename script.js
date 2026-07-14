@@ -95,7 +95,7 @@ ctx.font = "bold 20px Arial";
 
     });
 
-
+ctx.shadowBlur = 0;
     requestAnimationFrame(animate);
 
 }
