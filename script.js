@@ -11,12 +11,18 @@ window.addEventListener("resize",()=>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    createColumns();
+
 });
+
+
+
 let columns = [];
 
 const columnWidth = 120;
 
-let columnCount = Math.floor(canvas.width / columnWidth);
+let columnCount;
+
 
 
 function createColumns(){
@@ -26,51 +32,82 @@ function createColumns(){
     columnCount = Math.floor(canvas.width / columnWidth);
 
 
+
     for(let i = 0; i < columnCount; i++){
+
 
         let texts = [];
 
-        for(let j = 0; j < 8; j++){
+
+        for(let j = 0; j < 15; j++){
+
 
             texts.push({
 
-                y: -j * 80
+                y: -j * 60,
+
+                size: 16 + Math.random()*10
 
             });
 
+
         }
+
 
 
         columns.push({
 
             x: i * columnWidth,
-            speed: 1 + Math.random() * 4,
+
+            speed: 1 + Math.random()*4,
+
             texts:texts
 
         });
 
+
+
     }
+
 
 }
 
 
+
 createColumns();
+
+
+
+
+
 function animate(){
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
 
 
     ctx.shadowColor = "red";
-ctx.shadowBlur = 15;
+    ctx.shadowBlur = 15;
 
-ctx.fillStyle = "#ff4d88";
-ctx.font = "bold 20px Arial";
 
 
     columns.forEach(column=>{
 
 
         column.texts.forEach(text=>{
+
+
+            ctx.fillStyle = "#ff4d88";
+
+            ctx.font = 
+            "bold " + text.size + "px Arial";
+
 
 
             ctx.fillText(
@@ -80,12 +117,16 @@ ctx.font = "bold 20px Arial";
             );
 
 
+
             text.y += column.speed;
 
 
-            if(text.y > canvas.height + 50){
 
-                text.y = -50;
+            if(text.y > canvas.height + 60){
+
+
+                text.y = -60;
+
 
             }
 
@@ -93,12 +134,20 @@ ctx.font = "bold 20px Arial";
         });
 
 
+
     });
 
-ctx.shadowBlur = 0;
+
+
+    ctx.shadowBlur = 0;
+
+
+
     requestAnimationFrame(animate);
 
+
 }
+
 
 
 animate();
